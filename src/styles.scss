@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+h5.section-title {
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+}

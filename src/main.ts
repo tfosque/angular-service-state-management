@@ -1,6 +1,8 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+// import { NgbdModalComponentModule } from './app/modal-component.module';
+
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
