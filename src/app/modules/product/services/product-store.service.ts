@@ -31,7 +31,9 @@ export class ProductStoreService {
     fetch('http://localhost:3000/api/productsASMs')
       .then(res => res.json()
         .then(results => {
+          // TODO use if statement to check for 200
           this.products.next(results);
+          this.updateProductCnt();
         })
         .catch(err => {
           console.log({ err });

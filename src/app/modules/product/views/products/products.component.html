@@ -1,0 +1,35 @@
+<!-- TODO Add Pagination -->
+
+<div class="row">
+  <div class="offset-lg-1 col-lg-7">
+    <h5 class="section-title">
+      Products &nbsp;<span class="badge badge-primary">{{
+          productCnt | async
+        }}</span>
+    </h5>
+  </div>
+  <div class="col-4">
+    <h5 class="section-title ml-5">
+      Selected Products &nbsp;
+      <span class="badge badge-primary">0</span>
+    </h5>
+  </div>
+  <div class="offset-lg-1 col-lg-7 mt-3">
+    <div class="row">
+      <ng-container *ngFor="let product of products | async | slice: 0:100">
+        <app-product class="col-3" [product]="product"></app-product>
+      </ng-container>
+    </div>
+  </div>
+  <!-- Selected Products -->
+  <div class="col-lg-4 products-border mt-3">
+    <div class="row text-center">
+      <ng-container *ngFor="let thumb of products | async | slice: 0:4">
+        <div class="col-lg-2">
+          <div class="times-box"><i class="fa fa-times"></i></div>
+          <img class="responsive rounded" height="48" [src]="thumb.productImageUrl" alt="product-thumb" />
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
