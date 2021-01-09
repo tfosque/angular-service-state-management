@@ -1,3 +1,4 @@
+import { ProductStoreService } from './../../../product/services/product-store.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 
@@ -8,10 +9,22 @@ import { Product } from '../../models/product';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
-  constructor() { }
+  constructor(
+    private readonly productService: ProductStoreService
+  ) { }
 
   ngOnInit(): void {
     console.log(this.product, 'prod')
+  }
+
+  addSelectedProducts() {
+    this.productService.addToSelectedProducts(this.product);
+  }
+  removeSelectedProduct() {
+
+  }
+  clearSelectedProducts() {
+
   }
 
 }

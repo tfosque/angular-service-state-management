@@ -24,7 +24,7 @@
   <!-- Selected Products -->
   <div class="col-lg-4 products-border mt-3">
     <div class="row text-center">
-      <ng-container *ngFor="let thumb of products | async | slice: 0:4">
+      <ng-container *ngFor="let thumb of selectedProducts | async">
         <div class="col-lg-2">
           <div class="times-box"><i class="fa fa-times"></i></div>
           <img class="responsive rounded" height="48" [src]="thumb.productImageUrl" alt="product-thumb" />

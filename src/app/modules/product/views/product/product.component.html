@@ -1,5 +1,5 @@
-<div class="mb-3">
-  <div class="card">
+<div class="mb-3 product-box">
+  <div class="card" (click)="addSelectedProducts()">
     <img [src]="product.productImageUrl" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ product.itemOrProductDescription }}</h5>

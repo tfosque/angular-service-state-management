@@ -46,8 +46,13 @@ export class ProductStoreService {
     return;
   }
 
-  addToSelectedProducts() {
-    console.log('...adding to selected products')
+  addToSelectedProducts(product: Product) {
+    const newProducts = [...this.selectedProducts.getValue(), product];
+    this.selectedProducts.next(newProducts)
+    console.log('...adding to selected products', product);
+    // console.log({ newProducts });
+    console.log('this.selProducts:', this.selectedProducts.getValue());
+
   }
 
   removeFromSelectedProducts() {
