@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Subject } from "rxjs";
-import { CartItem } from "../models/cartItem";
+import { Product } from "../../product/models/product";
 import { OrderSummary } from "../models/order-summary";
 
 @Injectable({
@@ -8,7 +8,7 @@ import { OrderSummary } from "../models/order-summary";
 })
 /* Immutable Cart Service */
 export class CartStoreService {
-  data: CartItem[] = [
+  data: Product[] = [
     {
       commerceItemId: "ci3288000805",
       productImageUrl: "/images/large/412392_default_thumb.jpg",
@@ -114,10 +114,10 @@ export class CartStoreService {
     // this.cartItems.next()
     console.log('remove cart item', id)
   }
-  saveCartItems(items: CartItem[]) { }
-  updateCartItem(item: CartItem) {
+  saveCartItems(items: Product[]) { }
+  updateCartItem(item: Product) {
     console.log('item updated.', item)
   }
-  updateCartItems(items: CartItem[]) { }
-  deleteCart(items: CartItem[]) { }
+  updateCartItems(items: Product[]) { }
+  deleteCart(items: Product[]) { }
 }

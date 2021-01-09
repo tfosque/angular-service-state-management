@@ -1,5 +1,6 @@
+import { CartStoreService } from './../../cart/services/cart-store.service';
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 import { Product } from "../models/product";
 
 @Injectable({
@@ -17,12 +18,17 @@ export class ProductStoreService {
   /* Single Product */
   private product = new BehaviorSubject<Product>({});
   public product$ = this.product.asObservable();
+  /* productCount */
+  private productCnt = new Subject<number>();
+  public productCnt$ = this.productCnt.asObservable();
 
-  constructor() { }
+  constructor(
+    private readonly cartService: CartStoreService
+  ) { }
 
   /* Class Methods */
   getProducts(): void {
-    fetch('https://my.api.mockaroo.com/angular-service-state-mngment_products.json?key=c1a35bd0')
+    fetch('http://localhost:3000/api/productsASMs')
       .then(res => res.json()
         .then(results => {
           this.products.next(results);
@@ -45,7 +51,14 @@ export class ProductStoreService {
   removeFromSelectedProducts() {
     console.log('...remove from selected products')
   }
-  saveCartItems() { }
-  updateCartItems() { }
+  saveProductToCart(): void {
+    // TODO .value vs observable
+    this.cartService.saveCartItems(this.selectedProducts.value);
+    // TODO return {response: 200}
+  }
   deleteCart() { }
+
+  updateProductCnt() {
+    this.productCnt.next(this.products.value.length)
+  }
 }

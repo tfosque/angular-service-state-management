@@ -1,6 +1,5 @@
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 import { MenuService } from 'src/app/layout/services/menu.service';
 import { Product } from '../../models/product';
 import { ProductStoreService } from '../../services/product-store.service';
@@ -12,6 +11,8 @@ import { ProductStoreService } from '../../services/product-store.service';
 })
 export class ProductComponent implements OnInit {
   products = new BehaviorSubject<Product[]>([]);
+  productCnt = new Subject<number>();
+
   constructor(
     private readonly menuService: MenuService,
     private readonly productService: ProductStoreService
