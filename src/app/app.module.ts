@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { CartModule } from './modules/cart/cart.module';
 /* Bootstrap Moduels */
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -31,7 +32,8 @@ import { LandingPageComponent } from './landing-page/landing-page/landing-page.c
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    CartModule
   ],
   exports: [],
   providers: [],

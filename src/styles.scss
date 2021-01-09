@@ -4,6 +4,14 @@
 @import '~bootstrap/scss/bootstrap';
 h5.section-title {
   text-transform: uppercase;
-  letter-spacing: -0.05em;
+  // letter-spacing: -0.02em;
+  border-bottom: solid thick #2c3e50;
+  padding-bottom: 10px;
   font-weight: 700;
+  display: inline-block;
+  // margin: 35px;
+  -webkit-transform: scale(1, 1.2);
+  -moz-transform: scale(1, 1.2);
+  -o-transform: scale(1, 1.2);
+  transform: scale(1.15, 1.2);
 }
