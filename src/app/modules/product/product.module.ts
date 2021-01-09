@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './views/product/product.component';
 
@@ -7,7 +8,8 @@ import { ProductComponent } from './views/product/product.component';
 @NgModule({
   declarations: [ProductComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserModule
   ],
   exports: [ProductComponent]
 })

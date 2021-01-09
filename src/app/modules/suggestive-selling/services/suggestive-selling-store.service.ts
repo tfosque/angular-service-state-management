@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { Product } from "../models/product";
+import { Product } from "../../product/models/product";
 
 @Injectable({
   providedIn: "root"
 })
 /* Immutable Cart Service */
-export class ProductStoreService {
+export class SuggestiveSellingStoreService {
   data: Product[] = [];
   /* Products */
   private products = new BehaviorSubject<Product[]>(this.data);

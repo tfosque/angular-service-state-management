@@ -7,9 +7,9 @@ import { Product } from "../models/product";
 })
 /* Immutable Cart Service */
 export class ProductStoreService {
-  data: Product[] = [];
+  // data: Product[] = [];
   /* Products */
-  private products = new BehaviorSubject<Product[]>(this.data);
+  private products = new BehaviorSubject<Product[]>([]);
   public products$ = this.products.asObservable();
   /* Selected Products */
   private selectedProducts = new BehaviorSubject<Product[]>([]);
@@ -21,9 +21,17 @@ export class ProductStoreService {
   constructor() { }
 
   /* Class Methods */
-  getProducts() {
-    // this.products.next([])
-    return this.products$;
+  getProducts(): void {
+    fetch('https://my.api.mockaroo.com/angular-service-state-mngment_products.json?key=c1a35bd0')
+      .then(res => res.json()
+        .then(results => {
+          this.products.next(results);
+        })
+        .catch(err => {
+          console.log({ err });
+        })
+      )
+    // return this.products$;
   }
   getProduct(id: any) {
     console.log({ id });

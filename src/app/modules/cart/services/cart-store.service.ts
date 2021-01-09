@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 import { CartItem } from "../models/cartItem";
+import { OrderSummary } from "../models/order-summary";
 
 @Injectable({
   providedIn: "root"
@@ -81,24 +82,42 @@ export class CartStoreService {
   /* Cart Items */
   private cartItems = new BehaviorSubject<any>(this.data);
   public cartItems$ = this.cartItems.asObservable();
-  /* Order Summary */
-  private orderSummary = new BehaviorSubject<any>([]);
-  public orderSummary$ = this.orderSummary.asObservable();
 
+  /* Sub Total */
+  private subtotal = new Subject<number>();
+  public subtotal$ = this.subtotal.asObservable();
+  /* Other Charges */
+  private otherCharges = new Subject<number | string>();
+  public otherCharges$ = this.otherCharges.asObservable();
+  /* Tax */
+  private tax = new Subject<number | string>();
+  public tax$ = this.tax.asObservable();
+  /* Total */
+  private total = new Subject<number>();
+  public total$ = this.total.asObservable();
+  /* Order Summary */
+  private orderSummary = new BehaviorSubject<OrderSummary>(null);
+  public orderSummary$ = this.orderSummary.asObservable();
   constructor() { }
 
   /* Class Methods */
   getCartItems() {
+    // this.cartItems.next()
     return this.cartItems$;
   }
   getOrderSummary() {
+    // this.orderSummary.next()
     return this.orderSummary$;
   }
 
   removeItemFromCart(id: any) {
+    // this.cartItems.next()
     console.log('remove cart item', id)
   }
   saveCartItems(items: CartItem[]) { }
+  updateCartItem(item: CartItem) {
+    console.log('item updated.', item)
+  }
   updateCartItems(items: CartItem[]) { }
   deleteCart(items: CartItem[]) { }
 }

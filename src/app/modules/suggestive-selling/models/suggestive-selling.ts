@@ -1,4 +1,4 @@
-export interface Product {
+export interface SuggestiveSellingItem {
   id?: number;
   mongodb_id?: {};
   catalogRefId?: string;
