@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/layout/services/menu.service';
 import { Product } from '../../models/product';
 import { ProductStoreService } from '../../services/product-store.service';
+import { uniqBy } from 'lodash';
 
 @Component({
   selector: 'app-products',
@@ -24,19 +25,22 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts();
 
+    /* set menu */
     this.menuService.setActiveMenu('Products');
 
+    /* subscribe selected products */
     this.productService.selectedProducts$.subscribe(sel => {
-      this.selectedProducts.next(sel)
+      /* TODO Move to service Removes Dups & give user alert that item is already selected */
+      this.selectedProducts.next(uniqBy(sel, 'itemOrProductDescription'));
     })
-    /* subscribe to products TODO: this can be a returned value don't need subscription here */
+    /* subscribe to products 
+      TODO: this can be a returned value don't need subscription here
+     */
     this.productService.products$.subscribe(items => {
       this.products.next(items);
-      // console.log(this.products)
     })
-    /* get count */
+    /* subscribe to product get count don't need subscription here just return value */
     this.productService.productCnt$.subscribe(cnt => {
-      //  console.log({ cnt });
       this.productCnt.next(cnt)
     })
   }

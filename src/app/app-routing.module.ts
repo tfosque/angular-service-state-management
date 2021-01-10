@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './modules/cart/views/cart/cart.component';
-import { ProductsComponent } from './modules/product/views/products/products.component';
+import { ProductsComponent } from './modules/products/views/products/products.component';
 import { TemplateComponent } from './modules/template/views/template/template.component';
 
 

@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 /* Feature Modules */
 import { CartModule } from './modules/cart/cart.module';
-import { ProductModule } from './modules/product/product.module';
+import { ProductModule } from './modules/products/product.module';
 
 /* Bootstrap Moduels */
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +20,7 @@ import { MainMenuComponent } from './layout/main-menu/main-menu.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [

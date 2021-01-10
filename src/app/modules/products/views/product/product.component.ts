@@ -1,4 +1,4 @@
-import { ProductStoreService } from './../../../product/services/product-store.service';
+import { ProductStoreService } from '../../services/product-store.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 
@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.product, 'prod')
+    // console.log(this.product, 'prod')
   }
 
   addSelectedProducts() {

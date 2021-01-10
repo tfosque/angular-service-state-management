@@ -1,7 +1,9 @@
-import { CartStoreService } from './../../cart/services/cart-store.service';
+import { CartStoreService } from '../../cart/services/cart-store.service';
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Subject } from "rxjs";
 import { Product } from "../models/product";
+import { uniqBy } from 'lodash';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: "root"
@@ -23,22 +25,34 @@ export class ProductStoreService {
   public productCnt$ = this.productCnt.asObservable();
 
   constructor(
-    private readonly cartService: CartStoreService
+    private readonly cartService: CartStoreService,
+    private readonly http: HttpClient
   ) { }
 
   /* Class Methods */
   getProducts(): void {
-    fetch('http://localhost:3000/api/productsASMs')
+    /* fetch('http://localhost:3000/api/productsASMs')
       .then(res => res.json()
         .then(results => {
           // TODO use if statement to check for 200
-          this.products.next(results);
+          const uniqProducts = uniqBy(results, 'itemOrProductDescription');
+          console.log('results:', results);
+          console.log('uniqProducts:', uniqProducts);
+
+          this.products.next(uniqProducts);
           this.updateProductCnt();
         })
         .catch(err => {
           console.log({ err });
         })
-      )
+      ) */
+    this.http.get<Product[]>('http://localhost:3000/api/productsASMs')
+      .subscribe(res => {
+        const uniqProducts = uniqBy(res, 'itemOrProductDescription');
+        console.log('uniqProducts:', uniqProducts);
+        this.products.next(uniqProducts);
+        this.updateProductCnt();
+      })
     // return this.products$;
   }
   getProduct(id: any) {
@@ -48,19 +62,24 @@ export class ProductStoreService {
 
   addToSelectedProducts(product: Product) {
     const newProducts = [...this.selectedProducts.getValue(), product];
-    this.selectedProducts.next(newProducts)
-    console.log('...adding to selected products', product);
-    // console.log({ newProducts });
+    this.selectedProducts.next(newProducts);
+    // console.log('...adding to selected products', product);
     console.log('this.selProducts:', this.selectedProducts.getValue());
-
   }
 
-  removeFromSelectedProducts() {
-    console.log('...remove from selected products')
+  removeFromSelectedProducts(item: Product) {
+    const fProducts = this.selectedProducts.getValue().filter((f: Product) => {
+      if (f.id !== item.id) {
+        console.log({ f });
+        return f
+      }
+    })
+    this.selectedProducts.next(fProducts);
+    // console.log('...remove from selected products', item)
   }
   saveProductToCart(): void {
     // TODO .value vs observable
-    this.cartService.saveCartItems(this.selectedProducts.value);
+    this.cartService.saveCartItems(this.selectedProducts.getValue());
     // TODO return {response: 200}
   }
   deleteCart() { }

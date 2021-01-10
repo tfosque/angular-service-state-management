@@ -1,0 +1,17 @@
+<div class="mb-3 product-box">
+  <div class="card">
+    <img [src]="product.productImageUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+      <!-- <p #card>jappy</p> -->
+      <!-- <h6>value: {{ card.setAttribute('style', 'color: red') }}</h6> -->
+      <h5 class="card-title">{{ product.itemOrProductDescription }}</h5>
+      <p class="card-text">{{ product.unitPrice | currency }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <!--  <div class="col-7"> <a routerLink="" class="btn btn-primary btn-sm mt-1">Add to Cart</a></div> -->
+    <div class="offset-7 col-5 text-right">
+      <a (click)="[addSelectedProducts()]" routerLink="" class="btn btn-secondary btn-sm mt-1">Select</a>
+    </div>
+  </div>
+</div>
