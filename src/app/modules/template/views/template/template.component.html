@@ -1,1 +1,61 @@
-<p>template works!</p>
+<!-- header row -->
+<div class="row mb-3 header-row">
+  <div class="col-auto hide-header"><i class="fa fa-align-justify"></i></div>
+  <div class="col-auto hide-header"><input type="checkbox"></div>
+  <div class="col-1">
+    Prodcut
+  </div>
+  <div class="col-6">
+    Details
+  </div>
+  <div class="col-1">
+    Price
+  </div>
+  <div class="col-1">
+    Qty
+  </div>
+  <div class="col-1">&nbsp;</div>
+</div>
+
+<!-- template list -->
+<div class="row">
+  <div class="col-auto move-icon"><i class="fa fa-align-justify"></i></div>
+  <div class="col-auto"><input type="checkbox"></div>
+  <div class="col-1">Product Img</div>
+  <!-- details -->
+  <div class="col-6">
+    <div class="row details">
+      <div class="col-12">Owens Corning Duration® Premium COOL Shingles Harbor Fog</div>
+      <div class="col-12">Item #: 483591</div>
+      <div class="col-12">
+        <form>
+          <div class="form-group row">
+            <label for="nickname" class="col-sm-2 col-form-label">Nickname:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="nickname" value="" placeholder="optional">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-12">
+        <form>
+          <div class="form-group row">
+            <label for="color" class="col-sm-2 col-form-label">Color:</label>
+            <div class="col-sm-6">
+              <select class="form-control" name="color" id="color">
+                <option value="black">black</option>
+                <option value="black">blue</option>
+                <option value="black">brown</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-1">$22.99</div>
+  <div class="col-1">
+    <app-input-value [qty]="12"></app-input-value>
+  </div>
+  <div class="col-1 text-center"><i class="fa fa-trash"></i></div>
+</div>

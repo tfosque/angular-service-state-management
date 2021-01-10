@@ -20,6 +20,7 @@ import { MainMenuComponent } from './layout/main-menu/main-menu.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 import { CommonModule } from '@angular/common';
+import { BasicListItemComponent } from './_shared-components/basic-list-item/basic-list-item.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CommonModule } from '@angular/common';
     FooterComponent,
     MainMenuComponent,
     HomeComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    BasicListItemComponent
   ],
   imports: [
     BrowserModule,
