@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 import { CommonModule } from '@angular/common';
 import { BasicListItemComponent } from './_shared-components/basic-list-item/basic-list-item.component';
+import { AsmTooltipComponent } from './_shared-components/asm-tooltip/asm-tooltip.component';
 
 
 @NgModule({
@@ -31,8 +32,10 @@ import { BasicListItemComponent } from './_shared-components/basic-list-item/bas
     MainMenuComponent,
     HomeComponent,
     LandingPageComponent,
-    BasicListItemComponent
+    BasicListItemComponent,
+    AsmTooltipComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,7 +48,6 @@ import { BasicListItemComponent } from './_shared-components/basic-list-item/bas
   ],
   exports: [CommonModule],
   providers: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

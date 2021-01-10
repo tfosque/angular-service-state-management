@@ -1,0 +1,29 @@
+div.hide-header {
+  visibility: hidden;
+}
+.move-icon {
+  cursor: pointer;
+}
+
+.header-row {
+  border-bottom: solid thin #d3d3d3;
+  padding-bottom: 12px;
+
+  div {
+    color: #c2c0c0;
+  }
+}
+.details {
+  div {
+    margin-bottom: 12px;
+  }
+}
+
+.fa-trash {
+  cursor: pointer;
+}
+
+div.text-danger i {
+  padding: 4px 6px;
+  border: solid thin red;
+}

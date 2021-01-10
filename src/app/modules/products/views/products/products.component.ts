@@ -38,6 +38,8 @@ export class ProductsComponent implements OnInit {
      */
     this.productService.products$.subscribe(items => {
       this.products.next(items);
+      console.log({ items });
+
     })
     /* subscribe to product get count don't need subscription here just return value */
     this.productService.productCnt$.subscribe(cnt => {
